@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cat clicker</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./controllers/catController.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+</head>
+
+<body ng-app="catClicker" class="container">
+    <div ng-controller="catController as catCtrl">
+        <div class="row margin-top-2" ng-repeat="cat in catCtrl.catList track by $index">
+            <div class="col-lg-4 float-left">
+                <img ng-src={{cat.src}} ng-click="catCtrl.incrementCount(cat)" class="img-responsive" />
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <label>Name: </label>
+                    <span ng-bind="cat.name"></span>
+                </div>
+                <div class="row">
+                    <label>Description:</label>
+                    <span ng-bind="cat.description"></span>
+                </div>
+                <div class="row">
+                    <label>No of clicks: </label>
+                    <span ng-bind="cat.clickCount"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery-1.12.4.min.js"></script>
+    <script src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
