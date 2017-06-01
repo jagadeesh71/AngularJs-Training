@@ -23,7 +23,7 @@
     <image-preview cat-src="catObj.src" cat-obj="catObj"></image-preview>
     
     <div class="footer-css">
-        <input type="submit" class="btn button-css" ng-disabled="myForm.$invalid || isDuplicate" ng-click="saveCatDetails()" value="Save">
+        <input type="submit" class="btn button-css" ng-disabled="myForm.$invalid || isDuplicate" ng-click="saveCatDetails()" value="{{buttonValue}}">
         <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
     

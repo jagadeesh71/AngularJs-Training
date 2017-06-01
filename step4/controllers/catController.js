@@ -7,23 +7,22 @@
         vm.editflag = false;
         vm.isDuplicate = false;
         
-        var loadCatsData = function () {
-            facService.getCatList().then(function (result) {
-                vm.catList = result;
-                vm.getCatDetails(vm.catList[0]);
-            });
-        };
-        
-        loadCatsData();
+        facService.getCatList().then(function (result) {
+            vm.catList = result;
+            vm.getCatDetails(vm.catList[0]);
+        });
         
         vm.getCatDetails = function (catData) {
-            vm.catData = [];
-            vm.catData = vm.catList.filter(function (cat) {
-                return cat.id === catData.id ;
-            })[0];
-            vm.catData.isClicked = true;
-            vm.selectedCat = vm.catData.id;
-            vm.editflag = false;
+			facService.getCatList().then(function (result) {
+				vm.catList = result;
+				vm.catData = [];
+				vm.catData = vm.catList.filter(function (cat) {
+					return cat.id === catData.id ;
+				})[0];
+				vm.catData.isClicked = true;
+				vm.selectedCat = vm.catData.id;
+				vm.editflag = false;
+			});
         }
         
         vm.incrementCount = function (catReference) {

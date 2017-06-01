@@ -1,0 +1,23 @@
+<div class="panel panel-default col-xs-9" ng-if="catData && catList.length && !editflag">
+        <div class="panel-body">
+            <div class="row"> 
+                <a class="pull-right" ng-click="deleteCat()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a> 
+            </div>
+            <div class="col-xs-4"> 
+                <img ng-src={{catData.src}} class="img-responsive" ng-click="incrementClickCount()" /> 
+            </div>
+            <div class="col-xs-8">
+                <div class="row margin-left-2 margin-top-1">
+                    <label>Name:{{editflag}}</label> <span ng-bind="catData.name"></span> </div>
+                <div class="row margin-left-2 margin-top-1">
+                    <label>Description:</label> <span ng-bind="catData.description"></span> </div>
+                <div class="row margin-left-2 margin-top-1">
+                    <label>No of clicks: </label> <span ng-bind="catData.clickCount"></span> </div>
+                <div class="row margin-left-2 margin-top-1">
+                    <label>Votes:</label>
+                    <input type="number" ng-model="catData.votes" validate-upvote="catData" /> </div>
+            </div>
+        </div>
+    </div>

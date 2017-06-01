@@ -33,29 +33,9 @@
             <label><i>List is empty</i></label>
         </div>
     </div>
-    <div class="panel panel-default col-xs-9" ng-if="catCtrl.catData && catCtrl.catList.length && !catCtrl.editflag">
-        <div class="panel-body">
-            <div class="row"> 
-                <a class="pull-right" ng-click="catCtrl.deleteCat(catCtrl.catData)">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </a> 
-            </div>
-            <div class="col-xs-4"> 
-                <img ng-src={{catCtrl.catData.src}} class="img-responsive" ng-click="catCtrl.incrementCount(catCtrl.catData)" /> 
-            </div>
-            <div class="col-xs-8">
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Name:</label> <span ng-bind="catCtrl.catData.name"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Description:</label> <span ng-bind="catCtrl.catData.description"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>No of clicks: </label> <span ng-bind="catCtrl.catData.clickCount"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Votes:</label>
-                    <input type="number" ng-model="catCtrl.catData.votes" validate-upvote="catCtrl.catData" /> </div>
-            </div>
-        </div>
-    </div>
+    
+	<view-cat-data cat-data="catCtrl.catData" cat-list="catCtrl.catList" edit-flag="catCtrl.editflag" delete-cat="catCtrl.deleteCat(catCtrl.catData)" increment-count="catCtrl.incrementCount(catCtrl.catData)"></view-cat-data>
+	
     <div class="panel col-xs-9" ng-if="catCtrl.editflag">
         <div class="panel-heading edit-panel-css"><b>EDIT CAT DETAILS</b></div>
         <div class="panel-body">

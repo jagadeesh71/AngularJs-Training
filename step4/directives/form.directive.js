@@ -11,7 +11,10 @@
               saveCatDetails: '&saveCatDetails',
               cancel: '&cancel'
            },
-           templateUrl: './views/form.template.html'
+           templateUrl: './views/form.template.html',
+           link: function(scope) {
+               scope.buttonValue = scope.catObj.id ? 'Update' : 'Save';
+           }
         }
    }
 })();
