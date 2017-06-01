@@ -1,6 +1,7 @@
 body {
     background-color: #ebeef0;
-    background-image: url('../images/cat7.jpg');
+    background: url('../images/cat7.jpg') no-repeat fixed;
+	background-size: cover;
 }
 .float-left {
     float: left;
