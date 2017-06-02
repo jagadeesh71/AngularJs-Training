@@ -6,12 +6,12 @@
             restrict: 'E',
 			scope: {
 				catData: '=catData',
-				editFlag: '=editFlag',
 				catList: '=catList',
 				deleteCat: '&deleteCat',
-				incrementClickCount: '&incrementCount'
+				incrementClickCount: '&incrementCount',
+				editFlag: '=isEdited'
 			},
-			templateUrl: './views/catDetails.template.html',
+			templateUrl: './views/catDetails.template.html'
         }
     }
 })();

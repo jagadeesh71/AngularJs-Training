@@ -1,63 +1,62 @@
 (function () {
     angular.module('catClicker').factory('myFactoryService', myFactoryService);
+    myFactoryService.$inject = ['$q', '$http'];
     
-    myFactoryService.$inject = ['$q','$http'];
     function myFactoryService(q, http) {
-        
+
         var listOfCats = [];
         
-        function setData (catList) {
-            listOfCats = angular.copy(catList);
+        return {
+            addCat : addCat,
+            getCat : getCatData,
+            deleteCat : deleteCat,
+            updateCat : updateCatDetails,
+            getCatList: getCatList,
+            setData: updateCatDetails,
+            init: setData()
         }
-        
-        function getData () {
-            var defer = q.defer();
-            defer.resolve(listOfCats);
-            return defer.promise;
-        }
-        
+                
         function getCatList() {
-            var defer = q.defer();
+            return listOfCats;
+        }
+        
+        function addCat(catData) {
+            listOfCats.push(catData);
+        }
+        
+        function getCatData(catId) {
+            return listOfCats.filter(function (cat) {
+                return cat.id === catId ;
+            })[0];
+        }
+        
+        function deleteCat(catId) {
+            var index = listOfCats.findIndex(function (cat) {
+                return cat.id === catId;
+            });
+            listOfCats.splice(index, 1);
+            return listOfCats;
+        }
+        
+        function updateCatDetails(catData) {
+            listOfCats.forEach( function(cat) {
+                if (cat.id == catData.id) {
+                    cat.name = catData.name;
+                    cat.description = catData.description;
+                    cat.src = catData.src;
+                    cat.votes = catData.votes;
+                    cat.clickCount = catData.clickCount; 
+                }
+            });
+            return listOfCats;
+        }
+                
+        function setData(catData) {
             if(!listOfCats.length) {
-                http.get('./result.json').success(function (result) {
-                    setData(result.data);
-                    defer.resolve(listOfCats);
+                http.get('./result.json').then(function(response) {
+                    listOfCats = response.data.data;
                 });
-            } else {
-                defer.resolve(listOfCats);
             }
-            return defer.promise;
-        }
-        
-        getCatList();
-        
-        return {
-            setData: setData,
-            getData: getData,
-            getCatList: getCatList
-        };
-    }
-    
-    angular.module('catClicker').factory('imageUrlCheckService', imageUrlCheckService);
-    imageUrlCheckService.$inject = ['$q'];
-    
-    function imageUrlCheckService(q) {
-        
-        function isValidUrl(imgSrc) {
-            var defer = q.defer();
-            var img = new Image();
-            img.src = imgSrc;
-            img.onload = function() {
-                defer.resolve(true);
-            };
-            img.onerror = function() { 
-                defer.resolve(false);
-             };
-            return defer.promise;
-        }
-        
-        return {
-            isValidUrl: isValidUrl
         }
     }
     

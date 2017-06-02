@@ -10,10 +10,10 @@
             require: 'ngModel',
             link: function (scope, element, attr, parentCtrl) {
                 function myValidation() {
-                    var cat = scope.$eval(attr.validateUpvote);
-                    var prevValue = $cookies.get(cat.id);
+                    var catId = scope.$eval(attr.validateUpvote);
+                    var prevValue = $cookies.get(catId);
                     var catObject = scope.catList.find(function(catObj) {
-                        return catObj.id == cat.id;
+                        return catObj.id == catId;
                     });
                     
                     if (prevValue) {
@@ -21,9 +21,9 @@
                         parentCtrl.$setViewValue(prevValue);
                     } else {
                         catObject.votes = parseInt(parentCtrl.$viewValue, 10);
-                        $cookies.put(cat.id, parseInt(parentCtrl.$viewValue,10));
+                        $cookies.put(catId, parseInt(parentCtrl.$viewValue,10));
                     }
-                    facService.setData(scope.catList);
+                    facService.setData(catObject);
                     parentCtrl.$render();
                 }
                 parentCtrl.$parsers.push(myValidation);

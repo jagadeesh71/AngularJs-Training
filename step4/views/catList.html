@@ -19,9 +19,10 @@
                 <a ui-sref="newCat" class="pull-right"> <span class="glyphicon glyphicon-plus"></span> </a>
             </div>
         </div>
+        
         <div ng-repeat="cat in catCtrl.catList | myCustomFilter:catCtrl.inputSearchValue | orderBy:sort" class="cat-name">  
             <span class="glyphicon glyphicon-chevron-right"></span> 
-            <a ng-click="catCtrl.getCatDetails(cat)" ng-model="name" ng-class="{active_anchor: (cat.id == catCtrl.selectedCat)}">
+            <a ng-click="catCtrl.getCatDetails(cat.id)" ng-model="name" ng-class="{active_anchor: (cat.id == catCtrl.selectedCat)}">
                 {{cat.name}}
             </a> 
             <span ng-if="cat.isClicked" style="color: white">&#10004;</span>
@@ -29,18 +30,19 @@
                 <span class="glyphicon glyphicon-edit"></span> 
             </a>
         </div>
-        <div class="col-xs-9" ng-if="catCtrl.catList.length === 0">
+        
+        <div class="col-xs-9" ng-if="!catCtrl.catList.length">
             <label><i>List is empty</i></label>
         </div>
     </div>
     
-	<view-cat-data cat-data="catCtrl.catData" cat-list="catCtrl.catList" edit-flag="catCtrl.editflag" delete-cat="catCtrl.deleteCat(catCtrl.catData)" increment-count="catCtrl.incrementCount(catCtrl.catData)"></view-cat-data>
+	<view-cat-data cat-data="catCtrl.catData" cat-list="catCtrl.catList" is-edited="catCtrl.editflag" delete-cat="catCtrl.deleteCat(catCtrl.catData.id)" increment-count="catCtrl.incrementCount(catCtrl.catData)" ng-model="catCtrl.editflag"></view-cat-data>
 	
-    <div class="panel col-xs-9" ng-if="catCtrl.editflag">
+    <div class="panel col-xs-9" ng-if="catCtrl.editflag" tabindex="0" trigger-click>
         <div class="panel-heading edit-panel-css"><b>EDIT CAT DETAILS</b></div>
         <div class="panel-body">
-            <form-template cat-obj="catCtrl.catObj" check-duplicate="catCtrl.duplicateNameExists(catCtrl.catObj)" 
-            is-duplicate-flag="catCtrl.isDuplicate" save-cat-details="catCtrl.updateCatDetails(catCtrl.catObj)" cancel="catCtrl.cancel(catCtrl.catObj)"></form-template>
+            <form-template cat-obj="catCtrl.catObj" check-duplicate="catCtrl.duplicateNameCheck(catCtrl.catObj)" 
+            is-duplicate-flag="catCtrl.isDuplicate" save-cat-details="catCtrl.updateCatDetails(catCtrl.catObj)" cancel="catCtrl.cancel(catCtrl.catObj.id)"></form-template>
         </div>
     </div>
 </div>

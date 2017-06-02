@@ -10,14 +10,14 @@
             </div>
             <div class="col-xs-8">
                 <div class="row margin-left-2 margin-top-1">
-                    <label>Name:{{editflag}}</label> <span ng-bind="catData.name"></span> </div>
+                    <label>Name:</label> <span ng-bind="catData.name"></span> </div>
                 <div class="row margin-left-2 margin-top-1">
                     <label>Description:</label> <span ng-bind="catData.description"></span> </div>
                 <div class="row margin-left-2 margin-top-1">
                     <label>No of clicks: </label> <span ng-bind="catData.clickCount"></span> </div>
                 <div class="row margin-left-2 margin-top-1">
                     <label>Votes:</label>
-                    <input type="number" ng-model="catData.votes" validate-upvote="catData" /> </div>
+                    <input type="number" ng-model="catData.votes" validate-upvote="catData.id" /> </div>
             </div>
         </div>
     </div>

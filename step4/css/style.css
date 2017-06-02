@@ -119,3 +119,7 @@ img {
 .cat-name a:hover{
     color: #39c2d7;
 }
+
+.panel {
+    outline: none;
+}
