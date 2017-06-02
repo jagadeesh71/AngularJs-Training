@@ -27,15 +27,7 @@
         }
                 
         vm.loadCatDetails = function (data) {
-            vm.catObj = {
-                name: data.name,
-                description: data.description,
-                src: data.src,
-                id: data.id,
-                votes: data.votes,
-                clickCount: data.clickCount,
-                isClicked: data.isClicked,
-            };
+            vm.catObj = angular.copy(data);
             vm.selectedCat = data.id;
             vm.editflag = true;
         }
