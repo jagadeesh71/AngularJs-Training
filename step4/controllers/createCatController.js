@@ -25,7 +25,7 @@
             });
         }
         
-        vm.duplicateNameExists = function (data) {
+        vm.duplicateNameCheck = function (data) {
             var result = vm.catsList.filter(function (cat) {
                 return cat.name.toLowerCase() === data.name && data.name.toLowerCase();
             });

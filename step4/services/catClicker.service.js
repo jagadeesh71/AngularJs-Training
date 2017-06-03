@@ -9,6 +9,7 @@
         this.updateCat = updateCatById;
         this.deleteCat = deleteCatById;
         this.addCat = createCat;
+        this.aunthenticateUser = aunthenticateUser;
             
         function getCatList(){
             return http.get('/getCatList').then(function(response) {
@@ -36,6 +37,10 @@
         
         function createCat(catData) {
             return http.post('/createCat', catData);
+        }
+        
+        function aunthenticateUser(userData){
+            return http.post('/authenticateUser', userData);
         }
     }
     

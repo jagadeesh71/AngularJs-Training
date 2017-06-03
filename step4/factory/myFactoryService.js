@@ -1,21 +1,12 @@
 (function () {
     angular.module('catClicker').factory('myFactoryService', myFactoryService);
-    myFactoryService.$inject = ['$q', '$http'];
+    myFactoryService.$inject = ['$q', '$http', 'localStorageService'];
     
-    function myFactoryService(q, http) {
+    function myFactoryService(q, http, localStorage) {
 
-        var listOfCats = [];
+        var listOfCats = [],
+            usersList = [];
         
-        return {
-            addCat : addCat,
-            getCat : getCatData,
-            deleteCat : deleteCat,
-            updateCat : updateCatDetails,
-            getCatList: getCatList,
-            setData: updateCatDetails,
-            init: setData()
-        }
-                
         function getCatList() {
             return listOfCats;
         }
@@ -57,6 +48,24 @@
                     listOfCats = response.data.data;
                 });
             }
+        }
+        
+        function validateCredentials(userData) {
+            usersList = localStorage.get('users');
+            return usersList.filter(function(user) {
+                return user.userName === userData.userName && user.password === userData.password;
+            })[0];
+        }
+        
+        return {
+            addCat : addCat,
+            getCat : getCatData,
+            deleteCat : deleteCat,
+            updateCat : updateCatDetails,
+            getCatList: getCatList,
+            setData: updateCatDetails,
+            validateCredentials: validateCredentials,
+            init: setData()
         }
     }
     

@@ -6,6 +6,8 @@
     run.$inject = ['$httpBackend', 'myFactoryService'];
     
     function run($httpBackend, crudFactory){
+        $httpBackend.whenGET('./views/loginPage.html').passThrough();
+        $httpBackend.whenGET('./views/register.html').passThrough();
         $httpBackend.whenGET('./views/catList.html').passThrough();
         $httpBackend.whenGET('./views/createNewCat.html').passThrough();
         $httpBackend.whenGET('./views/form.template.html').passThrough();
@@ -32,6 +34,10 @@
         
         $httpBackend.whenDELETE(/\/deleteCat\/\d+/).respond(function (method, url, data){
             return [200, crudFactory.deleteCat(extractCatIdFromUrl(url)), {}];
+        });
+        
+        $httpBackend.whenPOST('/authenticateUser').respond(function (method, url, data){
+            return [200, crudFactory.validateCredentials(JSON.parse(data)), {}];
         });
         
         function extractCatIdFromUrl(url) {

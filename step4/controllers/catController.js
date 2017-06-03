@@ -1,11 +1,13 @@
 (function () {
     angular.module('catClicker').controller('catController', catController);
-    catController.$inject = ['catService'];
+    catController.$inject = ['catService','$cookies'];
     
-    function catController(catService) {
+    function catController(catService, cookies) {
         var vm = this;
         vm.editflag = false;
         vm.isDuplicate = false;
+        
+        vm.userData = JSON.parse(cookies.get('user'));
         
         catService.getCatList().then(function (result) {
             vm.catList = result;

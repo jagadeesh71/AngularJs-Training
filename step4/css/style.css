@@ -24,13 +24,17 @@ a {
     margin-top: 1%;
 }
 
+.margin-top-3 {
+    margin-top: 3%;
+}
+
 .margin-bottom-2 {
     margin-bottom: 2%;
 }
 
 label {
     margin-bottom: 0;
-    color: #a3c644;
+    color: #178844;
 }
 
 .padding {
@@ -98,9 +102,7 @@ img {
     color: #fff;
 }
 
-.edit-panel-css {
-    margin-left: -15px;
-    margin-right: -15px;
+.panel-header-css {
     background-color: black;
     color: white;
 }
@@ -122,4 +124,21 @@ img {
 
 .panel {
     outline: none;
+}
+
+.user-form,
+.edit-panel {
+    padding: 0;
+}
+.user-form label{
+    color: black;
+}
+
+.button-color{
+    background-color:#178844;
+    color: white;
+}
+
+.left{
+    left: 13%;
 }

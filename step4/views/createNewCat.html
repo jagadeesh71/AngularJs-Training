@@ -1,9 +1,13 @@
-<a ui-sref="catList">
-    <button class="btn button-css">Back</button>
-</a>
-<div class="panel panel-dimentions" tabindex="0" trigger-click>
-    <div class="panel-heading add-panel-css"><b>ADD NEW CAT</b></div>
-    <div class="panel-body">
-        <form-template cat-obj="createCtrl.catObj" check-duplicate="createCtrl.duplicateNameExists(createCtrl.catObj)" is-duplicate-flag="createCtrl.isDuplicate" save-cat-details="createCtrl.saveCatDetails(createCtrl.catObj)" cancel="createCtrl.cancel(createCtrl.catObj)"></form-template>
+<div class="container margin-top-3">
+    <div class="row">
+        <a ui-sref="catList">
+            <button class="btn button-css">Back</button>
+        </a>
+    </div>
+    <div class="panel panel-dimentions" tabindex="0" trigger-click>
+        <div class="panel-heading add-panel-css"><b>ADD NEW CAT</b></div>
+        <div class="panel-body">
+            <form-template cat-obj="createCtrl.catObj" check-duplicate="createCtrl.duplicateNameCheck(createCtrl.catObj)" is-duplicate-flag="createCtrl.isDuplicate" save-cat-details="createCtrl.saveCatDetails(createCtrl.catObj)" cancel="createCtrl.cancel(createCtrl.catObj)"></form-template>
+        </div>
     </div>
 </div>

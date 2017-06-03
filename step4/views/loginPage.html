@@ -1,0 +1,30 @@
+<div class="panel col-xs-4 col-xs-offset-4 user-form">
+    <div class="panel-heading panel-header-css"><b>Login User</b></div>
+    <div class="panel-body">
+        <form name="loginForm">
+            <div class="row" ng-class="{ 'has-error' : (loginForm.userName.$invalid && !loginForm.userName.$pristine)}">
+                <div class="col-xs-12">
+                    <label>Username</label>
+                    <input type="text" name="userName" ng-model="loginCtrl.user.userName" placeholder="Enter username" class="form-control" required>
+                    <i class="help-block" ng-if="loginForm.userName.$error.required && loginForm.userName.$dirty">username should not be empty</i>
+                </div>
+            </div>
+            <div class="row margin-top-2" ng-class="{ 'has-error' : (loginForm.password.$invalid && !loginForm.password.$pristine)}">
+                <div class="col-xs-12">
+                    <label>Password</label>
+                    <input type="password" name="password" ng-model="loginCtrl.user.password" placeholder="Enter password" class="form-control" required>
+                    <i class="help-block" ng-if="loginForm.password.$error.required && loginForm.password.$dirty" >password should not be empty</i>
+                </div>
+            </div>
+            <div class="row margin-top-2">
+                <div class="col-xs-6 margin-top-3">
+                    <p>Create account? <a ui-sref="register">Sign-up</a></p>
+                </div>
+                <div class="col-xs-6 margin-top-2 left">
+                    <input type="submit" class="btn button-color" ng-disabled="loginForm.$invalid" ng-click="loginCtrl.login(loginCtrl.user)" value="Login">
+                    <input type="reset" class="btn btn-default" value="Reset">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

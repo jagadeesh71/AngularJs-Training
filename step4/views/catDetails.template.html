@@ -1,23 +1,36 @@
 <div class="panel panel-default col-xs-9" ng-if="catList.length && !editFlag">
-        <div class="panel-body">
-            <div class="row"> 
-                <a class="pull-right" ng-click="deleteCat()">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </a> 
+    <div class="panel-body">
+        <div class="row">
+            <a class="pull-right"> <span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#deleteCat"></span> </a>
+        </div>
+        <div class="col-xs-4"> <img ng-src={{catData.src}} class="img-responsive" ng-click="incrementClickCount()" /> </div>
+        <div class="col-xs-8">
+            <div class="row margin-left-2 margin-top-1">
+                <label>Name:</label> <span ng-bind="catData.name"></span> </div>
+            <div class="row margin-left-2 margin-top-1">
+                <label>Description:</label> <span ng-bind="catData.description"></span> </div>
+            <div class="row margin-left-2 margin-top-1">
+                <label>No of clicks: </label> <span ng-bind="catData.clickCount"></span> </div>
+            <div class="row margin-left-2 margin-top-1">
+                <label>Votes:</label>
+                <input type="number" ng-model="catData.votes" validate-upvote="catData.id" /> </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteCat" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-trash">&nbsp;</span>Delete confirmation</h4> </div>
+            <div class="modal-body">
+                Are you sure you want to delete {{catData.name}} ?
             </div>
-            <div class="col-xs-4"> 
-                <img ng-src={{catData.src}} class="img-responsive" ng-click="incrementClickCount()" /> 
-            </div>
-            <div class="col-xs-8">
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Name:</label> <span ng-bind="catData.name"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Description:</label> <span ng-bind="catData.description"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>No of clicks: </label> <span ng-bind="catData.clickCount"></span> </div>
-                <div class="row margin-left-2 margin-top-1">
-                    <label>Votes:</label>
-                    <input type="number" ng-model="catData.votes" validate-upvote="catData.id" /> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn button-css" data-dismiss="modal" ng-click="deleteCat()">Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>

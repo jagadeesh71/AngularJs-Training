@@ -11,6 +11,7 @@
     <script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="../node_modules/angular-mocks/angular-mocks.js"></script>
     <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="../node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
     
     <script src="./app.js"></script>
     <script src="./app.mockData.js"></script>
@@ -31,6 +32,8 @@
     
     <script src="./filters/customFilter.js"></script>
     
+    <script src="./controllers/loginController.js"></script>
+    <script src="./controllers/registerController.js"></script>
     <script src="./controllers/catController.js"></script>
     <script src="./controllers/createCatController.js"></script>
 
@@ -38,8 +41,8 @@
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./css/style.css" type="text/css" /> </head>
 
-<body ng-app="catClicker" class="container margin-top-2" ng-cloak>
-    
+<body ng-app="catClicker" ng-cloak>
+
     <div ui-view></div>
     
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
