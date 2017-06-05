@@ -1,5 +1,5 @@
 <div class="panel col-xs-4 col-xs-offset-4 user-form container margin-top-3">
-    <div class="panel-heading panel-header-css"><b>Login</b></div>
+    <div class="panel-heading panel-header-css"><b>LOGIN</b></div>
     <div class="panel-body">
         <form name="loginForm">
             <div class="row" ng-class="{ 'has-error' : (loginForm.userName.$invalid && !loginForm.userName.$pristine)}">
@@ -18,7 +18,7 @@
             </div>
             <div class="row margin-top-2">
                 <div class="col-xs-6 margin-top-3">
-                    <p>Create account? <a ui-sref="register">Sign-up</a></p>
+                    <p>New User? <a ui-sref="register">Sign-up</a></p>
                 </div>
                 <div class="col-xs-6 margin-top-2 left">
                     <input type="submit" class="btn button-color" ng-disabled="loginForm.$invalid" ng-click="loginCtrl.login(loginCtrl.user)" value="Login">
