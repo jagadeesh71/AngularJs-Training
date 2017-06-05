@@ -15,7 +15,7 @@
     "jquery": "1.12.4"
   },
   "dependencies": {
-    "angular-ui-router": "^1.0.3",
+    "angular-ui-router": "0.2.14",
     "angular-messages": "1.4.8",
     "angular-local-storage": "0.6.0"
   }
