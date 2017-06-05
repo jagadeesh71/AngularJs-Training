@@ -6,7 +6,7 @@
     
     function runMethod($rootScope, state, cookies) {
         $rootScope.$on('$stateChangeStart', function(event, toState) {
-           if(!cookies.get('user') && toState.name !== 'login') {
+           if(!cookies.get('user') && (toState.name === 'catList' || toState.name === 'newCat')) {
                state.go('login');
                event.preventDefault();
            }

@@ -36,7 +36,7 @@
             return [200, crudFactory.deleteCat(extractCatIdFromUrl(url)), {}];
         });
         
-        $httpBackend.whenPOST('/authenticateUser').respond(function (method, url, data){
+        $httpBackend.whenPOST('/validateUser').respond(function (method, url, data){
             return [200, crudFactory.validateCredentials(JSON.parse(data)), {}];
         });
         

@@ -1,8 +1,8 @@
 (function () {
     angular.module('catClicker').controller('catController', catController);
-    catController.$inject = ['catService','$cookies'];
+    catController.$inject = ['catService','$cookies', '$state'];
     
-    function catController(catService, cookies) {
+    function catController(catService, cookies, $state) {
         var vm = this;
         vm.editflag = false;
         vm.isDuplicate = false;
@@ -61,6 +61,11 @@
             vm.editflag = false;
             vm.getCatDetails(catId);
         }
+		
+		vm.logout = function () {
+			cookies.remove('user');
+			$state.go('login');
+		}
     }
     
 })();
