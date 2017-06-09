@@ -1,0 +1,13 @@
+<div class="container margin-top-3">
+    <div class="row">
+        <a ui-sref="catList">
+            <button class="btn button-css">Back</button>
+        </a>
+    </div>
+    <div class="panel panel-dimentions" tabindex="0" trigger-click>
+        <div class="panel-heading add-panel-css"><b>ADD NEW CAT</b></div>
+        <div class="panel-body">
+            <form-template cat-obj="createCtrl.catObj" save-cat-details="createCtrl.saveCatDetails(createCtrl.catObj)" cancel="createCtrl.cancel(createCtrl.catObj)"></form-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cat clicker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-cookies/angular-cookies.min.js"></script>
+    <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="./node_modules/angular-mocks/angular-mocks.js"></script>
+    <script src="./node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="./node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    
+    <script src="./app.js"></script>
+    <script src="./app.mockData.js"></script>
+    <script src="./config.route.js"></script>
+    
+    <script src="./factory/backEndLogicFactory.js"></script>
+    <script src="./directives/image_preview/urlCheck.factory.js"></script>
+    
+    <script src="./services/catClicker.service.js"></script>
+    <script src="./modules/login/login.service.js"></script>
+
+    <script src="./directives/view_cat_details/validateUpvote.directive.js"></script>
+    <script src="./directives/form/form.directive.js"></script>
+    <script src="./directives/image_preview/imagePreview.directive.js"></script>
+    <script src="./directives/image_preview/urlValidation.directive.js"></script>
+    <script src="./directives/view_cat_details/viewCatData.directive.js"></script>
+    <script src="./directives/form/inputFocus.directive.js"></script>
+    <script src="./directives/form/triggerSaveButton.directive.js"></script>
+        
+    <script src="./modules/login/loginController.js"></script>
+    <script src="./modules/registration/registerController.js"></script>
+    <script src="./modules/catList/catController.js"></script>
+    <script src="./modules/addCat/createCatController.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css" /> </head>
+
+<body ng-app="catClicker" ng-cloak>
+
+    <div ui-view></div>
+    
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

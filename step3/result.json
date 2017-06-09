@@ -1,0 +1,50 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Nebelung",
+            "description": "The name Nebelung is German and means “creature of the mist,” a reference to the cat’s shimmering silvery-blue coat that seems to float over his body.",
+            "src": "./assets/images/cat5.png",
+            "clickCount": 0,
+            "votes": 0,
+            "isClicked": false
+        },
+            {
+                "id": 2,
+                "name": "American Bobtail",
+                "description": "Bobtailed cats, the result of a natural genetic mutation that causes a shortened tail, have appeared in various places over the centuries, from Japan to the Isle of Man",
+                "src": "./assets/images/cat1.png",
+                "clickCount": 0,
+                "votes": 0,
+                "isClicked": false
+        },
+            {
+                "id": 3,
+                "name": "Chartreux",
+                "description": "The Chartreux might well be compared to a mime, silent but communicative and sometimes silly",
+                "src": "./assets/images/cat3.png",
+                "clickCount": 0,
+                "votes": 0,
+                "isClicked": false
+        },
+            {
+                "id": 4,
+                "name": "Japanese Bobtail",
+                "description": "The Japanese Bobtail breed’s tell-tale characteristic is a short “bunny” tail that can be flexible or rigid, with one or more curves, angles or kinks.",
+                "src": "./assets/images/cat6.png",
+                "clickCount": 0,
+                "votes": 0,
+                "isClicked": false
+        },
+            {
+                "id": 5,
+                "name": "Bengal Cats",
+                "description": "The Bengal is highly active and highly intelligent.This makes him fun to live with, but he can sometimes be challenging.",
+                "src": "./assets/images/cat2.png",
+                "clickCount": 0,
+                "votes": 0,
+                "isClicked": false
+        }
+    ],
+    "success": true
+}

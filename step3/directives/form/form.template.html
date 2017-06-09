@@ -1,0 +1,32 @@
+<div ng-form="myForm">
+    <div class="row" ng-class="{ 'has-error' : (myForm.catName.$invalid && !myForm.catName.$pristine) || isDuplicate }">
+        <div class="col-xs-3">
+            <label class="pull-right">Cat Name:</label>
+        </div>
+        <div class="col-xs-9">
+            <input type="text" placeholder="Enter cat name" name="catName" ng-model="catObj.name" ng-change="duplicateNameCheck(catObj)" class="form-control" input-focus="focusEnabled" ng-init="focusEnabled=true" required>
+            <i ng-if="myForm.catName.$invalid && !myForm.catName.$pristine" class="help-block">Cat name is required.</i>
+            <i ng-if="isDuplicate" class="help-block">Cat name already exists.</i>
+        </div>
+    </div>
+    <div class="row margin-top-2" ng-class="{ 'has-error' : myForm.description.$invalid && !myForm.description.$pristine }">
+        <div class="col-xs-3">
+            <label class="pull-right">Cat Description:</label>
+        </div>
+        <div class="col-xs-9">
+            <textarea type="text" placeholder="Enter cat description" name="description" ng-model="catObj.description" class="form-control" ng-minlength="3" ng-maxlength="180"></textarea>
+            <div class="help-block" ng-messages="myForm.description.$error">
+                <i ng-message="minlength">Description is too short.</i>
+                <i ng-message="maxlength">Description is too large.</i>
+            </div>
+        </div>
+    </div>
+    
+    <image-preview cat-src="catObj.src" cat-obj="catObj"></image-preview>
+    
+    <div class="footer-css">
+        <input type="submit" id="saveButton" class="btn button-css" ng-disabled="myForm.$invalid || isDuplicate" ng-click="saveCatDetails()" value="{{buttonValue}}">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+    
+</div>

@@ -1,0 +1,59 @@
+<div class="panel col-xs-4 col-xs-offset-4 user-form container margin-top-3">
+    <div class="panel-heading panel-header-css"><b>USER REGISTRATION</b></div>
+    <div class="panel-body">
+        <form name="registerForm" novalidate>
+            <div class="row">
+                <div class="col-xs-12" ng-class="{ 'has-error' : (registerForm.userName.$invalid && !registerForm.userName.$pristine)}">
+                    <label>Username</label>
+                    <input type="text" name="userName" ng-model="regCtrl.user.userName" ng-maxlength="15" ng-pattern="regCtrl.USERNAMEREGEX" placeholder="Enter username" class="form-control" required>
+                    
+                    <div class="help-block" ng-messages="registerForm.userName.$error" ng-if="registerForm.userName.$dirty">
+                        <i ng-message="required">Username should not be empty</i>
+                        <i ng-message="maxlength">Username should have atmost 10 letters only</i>
+                        <i ng-message="pattern">Username should contain alphanumerics only</i>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-2" ng-class="{ 'has-error' : (registerForm.password.$invalid && !registerForm.password.$pristine)}">
+                <div class="col-xs-12">
+                    <label>Password</label>
+                    <input type="password" name="password" ng-model="regCtrl.user.password" ng-pattern="regCtrl.PASSWORDREGEX" placeholder="Enter username" class="form-control" ng-maxlength="15" required>
+                    <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$dirty">
+                        <i ng-message="required">password should not be empty</i>
+                        <i ng-message="pattern">password should contain atleast one a-z,A-Z,0-9</i>
+                        <i ng-message="maxlength">password should have atmost 15 letters only</i>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-2" ng-class="{ 'has-error' : (registerForm.re_password.$invalid || regCtrl.user.password !== regCtrl.user.confPassword) && !registerForm.re_password.$pristine}">
+                <div class="col-xs-12">
+                    <label>Confirm Password</label>
+                    <input type="password" name="re_password" ng-model="regCtrl.user.confPassword" placeholder="Re-Enter username" class="form-control" required>
+                    <div class="help-block" ng-if="!registerForm.re_password.$pristine">
+                        <i ng-if="registerForm.re_password.$error.required">Please confirm password</i>
+                        <i ng-if="!registerForm.re_password.$error.required && regCtrl.user.password !== regCtrl.user.confPassword">Both passwords should match</i>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-2" ng-class="{ 'has-error' : (registerForm.email.$invalid && !registerForm.email.$pristine)}">
+                <div class="col-xs-12">
+                    <label>Email Id</label>
+                    <input type="email" name="email" ng-model="regCtrl.user.emailId"placeholder="Enter email address" ng-pattern="regCtrl.EMAILREGEX" class="form-control" autocomplete="off" required>
+                    <div class="help-block" ng-messages="registerForm.email.$error" ng-if="registerForm.email.$dirty">
+                        <i ng-message="required">email id should not be empty</i>
+                        <i ng-message="pattern">please enter valid email id</i>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-2">
+                <div class="col-xs-6 margin-top-3">
+                    <p>Registered User? <a ui-sref="login">Login</a></p>
+                </div>
+                <div class="col-xs-6 margin-top-2 left">
+                    <input type="submit" class="btn button-color" ng-disabled="registerForm.$invalid" ng-click="regCtrl.createUser(regCtrl.user)" value="Sign up">
+                    <input type="reset" class="btn btn-default" value="Reset">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

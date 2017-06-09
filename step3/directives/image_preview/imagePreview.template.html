@@ -1,0 +1,15 @@
+<div ng-form="imgForm">
+    <div class="row margin-top-2" ng-class="{ 'has-error' : (imgForm.imageUrl.$error.urlValidation || imgForm.imageUrl.$invalid) && imgForm.imageUrl.$touched}">
+        <div class="col-xs-3">
+            <label class="pull-right">Cat Image URL: </label>
+        </div>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="imageUrl" ng-model="catSrc" ng-model-options="{allowInvalid: true, updateOn: 'blur'}" check-validity placeholder="Enter cat url" required>
+            <img src={{catSrc}} ng-if="catSrc && !imgForm.imageUrl.$error.urlValidation" class="img-responsive img-dimensions" />
+            <div class="help-block" ng-messages="imgForm.imageUrl.$error" ng-if="imgForm.imageUrl.$touched">
+                <i ng-message="!required && urlValidation">Please enter a valid URL</i>
+                <i ng-message="required">Cat Image URL is required.</i>
+            </div>
+        </div>
+    </div>
+</div>
