@@ -1,6 +1,6 @@
 # AngularJs-Training
 
-I am maintaining my folder structure in Step4.
+I am maintaining my folder structure in Step3.
 
-Please install node modules using npm for step4.
+Please install node modules using npm for step3.
 
